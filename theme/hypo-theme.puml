@@ -119,7 +119,20 @@ skinparam collectionsBorderColor black
 collections "$name" #CLUSTER_NODES_COLOR
 !endprocedure
 
+!unquoted procedure OSL_LOGO_BOX()
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/openslice_logo.png{scale=0.2}>" #OSL_COLOR_LIGHT
+!endprocedure
+
+!unquoted procedure END_OSL_LOGO_BOX()
+end box
+!endprocedure
+
 !unquoted procedure OSL_INST($name)
 skinparam participantBorderColor DarkOrange
 participant "$name" #OSL_COLOR
+!endprocedure
+
+!unquoted procedure OSL_INST_LOGO()
+skinparam participantBorderColor DarkOrange
+participant "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/openslice_logo.png{scale=0.2}>" #OSL_COLOR
 !endprocedure

@@ -9,7 +9,7 @@ actor "Infra.\nProvider" #000000
 actor "Vertical\nEnd User" #000000
 actor "Service\nProvider" #000000
 
-box "ETSI HypO" #HYPO_GREEN_6
+HYPO_LOGO_BOX()
 
     HYPO_BOX("Portal")
         participant Web as Web
@@ -53,15 +53,17 @@ box "ETSI HypO" #HYPO_GREEN_6
         FABRIC_CLIENT("Fabric Client\nHypO")
     END_HYPO_BOX()
 
-end box
+END_HYPO_LOGO_BOX()
 
-FABRIC_BOX("Zero-Trust\nNetwork Fabric")
+FABRIC_BOX_LOGO("Zero-Trust\nNetwork Fabric")
     FABRIC_CTRL("Fabric\nController")
 END_FABRIC_BOX()
 
 REMOTE_INFRA_BOX("Remote Infrastructure")
     FABRIC_CLIENT("Fabric Client\nRemote")
-    OSL_INST("ETSI\nOpenSlice")
+    OSL_LOGO_BOX()
+        OSL_INST("ETSI\nOpenSlice")
+    END_OSL_LOGO_BOX()
     CLUSTER_CTRL("Cluster\nController")
     CLUSTER_NODES("Cluster\nNode")
 END_REMOTE_INFRA_BOX()
