@@ -42,6 +42,14 @@ skinparam actor {
 ' Reusable Components
 ' =====================
 
+!unquoted procedure HYPO_LOGO_BOX()
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/hypo_logo_black.png{scale=0.3}>" #HYPO_GREEN_6
+!endprocedure
+
+!unquoted procedure END_HYPO_LOGO_BOX()
+end box
+!endprocedure
+
 !unquoted procedure HYPO_BOX($name)
 box "$name" #HYPO_BOX_COLOR
 !endprocedure
@@ -51,6 +59,14 @@ box "<color:white>$name</color>" #HYPO_BOX_COLOR
 !endprocedure
 
 !unquoted procedure END_HYPO_BOX()
+end box
+!endprocedure
+
+!unquoted procedure FABRIC_BOX_LOGO($name)
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/openziti_logo.png{scale=0.1}>\n\n$name" #FABRIC_BOX_COLOR
+!endprocedure
+
+!unquoted procedure END_FABRIC_BOX_LOGO()
 end box
 !endprocedure
 
