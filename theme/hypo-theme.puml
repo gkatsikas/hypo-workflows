@@ -63,7 +63,7 @@ end box
 !endprocedure
 
 !unquoted procedure FABRIC_BOX_LOGO($name)
-box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/openziti_logo.png{scale=0.1}>\n\n$name" #FABRIC_BOX_COLOR
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/openziti_logo.png{scale=0.1}>\n$name" #FABRIC_BOX_COLOR
 !endprocedure
 
 !unquoted procedure END_FABRIC_BOX_LOGO()
