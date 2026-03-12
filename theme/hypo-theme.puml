@@ -14,6 +14,7 @@ hide footbox
 ' =====================
 ' Global Styling
 ' =====================
+' Fonts and basic colors
 skinparam DefaultFontSize 20
 skinparam defaultTextAlignment center
 skinparam BackgroundColor #F0F0F0
@@ -31,20 +32,6 @@ skinparam NoteBorderColor black
 ' Padding
 skinparam BoxPadding 10
 skinparam ParticipantPadding 10
-
-' Dummy stereotype
-skinparam participant {
-  BackgroundColor<<spacer>> transparent
-  BorderColor<<spacer>> transparent
-  FontColor<<spacer>> transparent
-}
-
-skinparam sequence {
-  LifeLineBorderColor<<spacer>> transparent
-  LifeLineBackgroundColor<<spacer>> transparent
-}
-
-skinparam ShowStereotype false
 
 ' Actors shall have obvious outline
 skinparam actor {
@@ -83,12 +70,17 @@ box "$name" #REMOTE_INFRA_BOX_COLOR
 end box
 !endprocedure
 
-' !unquoted procedure HYPO_SERVICE($name)
-' participant "$name" #HYPO_SERVICE_COLOR
-' !endprocedure
+!unquoted procedure HYPO_SERVICE($name)
+participant "$name" #HYPO_SERVICE_COLOR
+!endprocedure
 
 !unquoted procedure HYPO_DB($name)
 database "$name" #HYPO_DB_COLOR
+!endprocedure
+
+!unquoted procedure HYPO_BUS($name)
+skinparam queueBorderColor #black
+queue "$name" #white
 !endprocedure
 
 !unquoted procedure FABRIC_CTRL($name)
@@ -98,7 +90,7 @@ participant "$name" #FABRIC_CTRL_COLOR
 
 !unquoted procedure FABRIC_CLIENT($name)
 skinparam participantBorderColor HYPO_BLUE_1
-participant "Fabric Client\n$name" #FABRIC_CLIENT_COLOR
+participant "$name" #FABRIC_CLIENT_COLOR
 !endprocedure
 
 !unquoted procedure CLUSTER_CTRL($name)
@@ -115,4 +107,3 @@ collections "$name" #CLUSTER_NODES_COLOR
 skinparam participantBorderColor DarkOrange
 participant "$name" #OSL_COLOR
 !endprocedure
-
