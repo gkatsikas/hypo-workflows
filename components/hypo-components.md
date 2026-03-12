@@ -1,0 +1,59 @@
+!includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/palette/hypo-palette.puml
+!includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/theme/hypo-theme.puml
+
+' =====================
+' Components
+' =====================
+
+actor "Service\nProvider" #000000
+
+box "ETSI HypO" #HYPO_GREEN_6
+
+    HYPO_BOX("Portal")
+        participant Web as Web
+        participant Cart as Cart
+    END_HYPO_BOX()
+
+    HYPO_BOX("API")
+        participant TMF as TMF
+        participant Peering as Peering
+        participant Registry as Registry
+        participant Fabric as Fabric
+    END_HYPO_BOX()
+
+    HYPO_BOX("Orchestrator")
+        participant SONATA as SONATA
+    END_HYPO_BOX()
+
+    HYPO_DB("Database")
+
+    HYPO_BOX("Service-Manager")
+        participant "Package\nManager" as Pkg_Manager
+        participant "Service\nMonitor" as Svc_Monitor
+    END_HYPO_BOX()
+
+    HYPO_BOX("External\nServices")
+        participant "Authentication" as Auth_Manager
+        database "Secrets" as Secret_Manager
+        participant "Telemetry" as Tel_Manager
+        ' participant "Logging" as Log_Manager
+    END_HYPO_BOX()
+
+    HYPO_BOX("Clients")
+        participant "OSS\nClient" as OSS_Client
+        participant "Telemetry\nClient" as Telemetry_Client
+        FABRIC_CLIENT("HypO")
+    END_HYPO_BOX()
+
+end box
+
+FABRIC_BOX("Zero-Trust\nNetwork Fabric")
+    FABRIC_CTRL("Fabric\nController")
+END_FABRIC_BOX()
+
+REMOTE_INFRA_BOX("Remote Infrastructure")
+    FABRIC_CLIENT("Remote")
+    OSL_INST("ETSI\nOpenSlice")
+    CLUSTER_CTRL("Cluster\nController")
+    CLUSTER_NODES("Cluster\nNode")
+END_REMOTE_INFRA_BOX()
