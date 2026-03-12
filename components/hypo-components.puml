@@ -5,9 +5,9 @@
 ' ETSI HypO Components
 ' =====================
 
-actor "Infra.\nProvider" #000000
-actor "Vertical\nEnd User" #000000
-actor "Service\nProvider" #000000
+actor "Infra.\nProvider" as InfPrv #000000
+actor "Vertical\nEnd User" as VertEndUser #000000
+actor "Service\nProvider" as SvcPrv #000000
 
 HYPO_LOGO_BOX()
 
