@@ -1,0 +1,67 @@
+```plantuml
+
+' ========================
+' ETSI HypO Color Palette
+' ========================
+
+!define HYPO_ORANGE_1 DA9100
+!define HYPO_ORANGE_2 FFA709
+!define HYPO_ORANGE_3 FFC357
+!define HYPO_ORANGE_4 FFD68B
+!define HYPO_ORANGE_5 FFE4B3
+!define HYPO_ORANGE_6 FFEDCD
+
+!define HYPO_GREEN_1 4F7A3A
+!define HYPO_GREEN_2 67A14D
+!define HYPO_GREEN_3 92C17D
+!define HYPO_GREEN_4 B1D3A2
+!define HYPO_GREEN_5 C5DFBB
+!define HYPO_GREEN_6 D9EAD2
+
+!define HYPO_RED_1 CC4125
+!define HYPO_RED_2 DE5F46
+!define HYPO_RED_3 E47E6A
+!define HYPO_RED_4 EBA091
+!define HYPO_RED_5 F1BCB1
+!define HYPO_RED_6 F7DBD5
+
+!define HYPO_TEAL_1 2A97A5
+!define HYPO_TEAL_2 6FCEDB
+!define HYPO_TEAL_3 PaleTurquoise
+!define HYPO_TEAL_4 C9FFFF
+!define HYPO_TEAL_5 DDFFFF
+!define HYPO_TEAL_6 E7FFFF
+
+!define HYPO_BLUE_1 3F6DC1
+!define HYPO_BLUE_2 7A9AD4
+!define HYPO_BLUE_3 9AB2DE
+!define HYPO_BLUE_4 B3C6E7
+!define HYPO_BLUE_5 C9D6ED
+
+!define HYPO_GREY_1 737373
+!define HYPO_GREY_2 A3A3A3
+!define HYPO_GREY_3 C5C5C5
+!define HYPO_GREY_4 EAEAEA
+!define HYPO_GREY_5 F0F0F0
+
+!define HYPO_TEXT_LIGHT FFFFFF
+!define HYPO_TEXT_DARK 1A1A1A
+
+' =====================
+' ETSI HypO Color Roles
+' =====================
+
+!define HYPO_BOX_COLOR white
+!define HYPO_SERVICE_COLOR HYPO_TEAL_4
+!define HYPO_DB_COLOR HYPO_GREEN_2
+
+!define FABRIC_BOX_COLOR HYPO_BLUE_5
+!define FABRIC_CTRL_COLOR HYPO_BLUE_2
+!define FABRIC_CLIENT_COLOR HYPO_BLUE_4
+
+!define REMOTE_INFRA_BOX_COLOR HYPO_GREY_3
+!define OSL_COLOR HYPO_ORANGE_3
+!define CLUSTER_CTRL_COLOR HYPO_GREY_4
+!define CLUSTER_NODES_COLOR HYPO_GREY_5
+
+```
