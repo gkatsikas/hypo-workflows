@@ -61,9 +61,13 @@ END_FABRIC_BOX()
 
 REMOTE_INFRA_BOX("Remote Infrastructure")
     FABRIC_CLIENT("Fabric Client\nRemote")
+
     OSL_LOGO_BOX()
         OSL_INST("ETSI\nOpenSlice")
     END_OSL_LOGO_BOX()
-    CLUSTER_CTRL("Cluster\nController")
-    CLUSTER_NODES("Cluster\nNode")
+
+    CLUSTER_LOGO_BOX()
+        CLUSTER_CTRL("Cluster\nController")
+        CLUSTER_NODES("Cluster\nNode")
+    END_CLUSTER_LOGO_BOX()
 END_REMOTE_INFRA_BOX()

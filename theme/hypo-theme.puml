@@ -42,6 +42,7 @@ skinparam actor {
 ' Reusable Components
 ' =====================
 
+' ETSI HypO Components
 !unquoted procedure HYPO_LOGO_BOX()
 box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/hypo_logo_black.png{scale=0.3}>" #HYPO_GREEN_6
 !endprocedure
@@ -62,6 +63,20 @@ box "<color:white>$name</color>" #HYPO_BOX_COLOR
 end box
 !endprocedure
 
+!unquoted procedure HYPO_SERVICE($name)
+participant "$name" #HYPO_SERVICE_COLOR
+!endprocedure
+
+!unquoted procedure HYPO_DB($name)
+database "$name" #HYPO_DB_COLOR
+!endprocedure
+
+!unquoted procedure HYPO_BUS($name)
+skinparam queueBorderColor #black
+queue "$name" #white
+!endprocedure
+
+' Zero-Trust Network Fabric Components
 !unquoted procedure FABRIC_BOX_LOGO($name)
 box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/openziti_logo.png{scale=0.1}>\n$name" #FABRIC_BOX_COLOR
 !endprocedure
@@ -78,6 +93,17 @@ box "$name" #FABRIC_BOX_COLOR
 end box
 !endprocedure
 
+!unquoted procedure FABRIC_CTRL($name)
+skinparam participantBorderColor HYPO_PURPLE_1
+participant "$name" #FABRIC_CTRL_COLOR
+!endprocedure
+
+!unquoted procedure FABRIC_CLIENT($name)
+skinparam participantBorderColor HYPO_PURPLE_1
+participant "$name" #FABRIC_CLIENT_COLOR
+!endprocedure
+
+' Remote Infrastructure Components
 !unquoted procedure REMOTE_INFRA_BOX($name)
 box "$name" #REMOTE_INFRA_BOX_COLOR
 !endprocedure
@@ -86,39 +112,7 @@ box "$name" #REMOTE_INFRA_BOX_COLOR
 end box
 !endprocedure
 
-!unquoted procedure HYPO_SERVICE($name)
-participant "$name" #HYPO_SERVICE_COLOR
-!endprocedure
-
-!unquoted procedure HYPO_DB($name)
-database "$name" #HYPO_DB_COLOR
-!endprocedure
-
-!unquoted procedure HYPO_BUS($name)
-skinparam queueBorderColor #black
-queue "$name" #white
-!endprocedure
-
-!unquoted procedure FABRIC_CTRL($name)
-skinparam participantBorderColor black
-participant "$name" #FABRIC_CTRL_COLOR
-!endprocedure
-
-!unquoted procedure FABRIC_CLIENT($name)
-skinparam participantBorderColor HYPO_BLUE_1
-participant "$name" #FABRIC_CLIENT_COLOR
-!endprocedure
-
-!unquoted procedure CLUSTER_CTRL($name)
-skinparam collectionsBorderColor black
-collections "$name" #CLUSTER_CTRL_COLOR
-!endprocedure
-
-!unquoted procedure CLUSTER_NODES($name)
-skinparam collectionsBorderColor black
-collections "$name" #CLUSTER_NODES_COLOR
-!endprocedure
-
+' ETSI OpenSlice Components
 !unquoted procedure OSL_LOGO_BOX()
 box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/openslice_logo.png{scale=0.2}>" #OSL_COLOR_LIGHT
 !endprocedure
@@ -135,4 +129,33 @@ participant "$name" #OSL_COLOR
 !unquoted procedure OSL_INST_LOGO()
 skinparam participantBorderColor DarkOrange
 participant "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/openslice_logo.png{scale=0.2}>" #OSL_COLOR
+!endprocedure
+
+' Compute Clusters Components
+!unquoted procedure CLUSTER_LOGO_BOX()
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo.png{scale=0.2}>" #CLUSTER_BOX_COLOR
+!endprocedure
+
+!unquoted procedure END_CLUSTER_LOGO_BOX()
+end box
+!endprocedure
+
+!unquoted procedure CLUSTER_CTRL_LOGO($name)
+skinparam collectionsBorderColor black
+collections "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo.png{scale=0.15}>\n$name" #CLUSTER_CTRL_COLOR
+!endprocedure
+
+!unquoted procedure CLUSTER_CTRL($name)
+skinparam collectionsBorderColor black
+collections "$name" #CLUSTER_CTRL_COLOR
+!endprocedure
+
+!unquoted procedure CLUSTER_NODES_LOGO($name)
+skinparam collectionsBorderColor black
+collections "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo.png{scale=0.15}>\n$name" #CLUSTER_NODES_COLOR
+!endprocedure
+
+!unquoted procedure CLUSTER_NODES($name)
+skinparam collectionsBorderColor black
+collections "$name" #CLUSTER_NODES_COLOR
 !endprocedure
