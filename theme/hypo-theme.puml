@@ -133,7 +133,7 @@ participant "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/ref
 
 ' Compute Clusters Components
 !unquoted procedure CLUSTER_LOGO_BOX()
-box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo_cropped.png{scale=0.2}>" #CLUSTER_BOX_COLOR
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo_cropped.png{scale=0.05}>" #CLUSTER_BOX_COLOR
 !endprocedure
 
 !unquoted procedure END_CLUSTER_LOGO_BOX()
@@ -142,7 +142,7 @@ end box
 
 !unquoted procedure CLUSTER_CTRL_LOGO($name)
 skinparam collectionsBorderColor black
-collections "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo_cropped.png{scale=0.15}>\n$name" #CLUSTER_CTRL_COLOR
+collections "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo_cropped.png{scale=0.05}>\n$name" #CLUSTER_CTRL_COLOR
 !endprocedure
 
 !unquoted procedure CLUSTER_CTRL($name)
@@ -152,7 +152,7 @@ collections "$name" #CLUSTER_CTRL_COLOR
 
 !unquoted procedure CLUSTER_NODES_LOGO($name)
 skinparam collectionsBorderColor black
-collections "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo_cropped.png{scale=0.15}>\n$name" #CLUSTER_NODES_COLOR
+collections "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/k8s_logo_cropped.png{scale=0.05}>\n$name" #CLUSTER_NODES_COLOR
 !endprocedure
 
 !unquoted procedure CLUSTER_NODES($name)
