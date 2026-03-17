@@ -60,4 +60,4 @@ at the top part of your workflow.
 
 Then, the same workflow transforms into a minimal figure showing only the essential elements:
 
-<img src="output/example_min.png" alt="Example image" style="width:40%; height:auto;">
+<img src="output/example_min.png" alt="Example image" style="width:60%; height:auto;">
