@@ -119,7 +119,7 @@ end box
 
 ' ETSI OpenSlice Components
 !unquoted procedure OSL_LOGO_BOX()
-box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=0.2}>" #OSL_COLOR_LIGHT
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=0.8}>" #OSL_COLOR_LIGHT
 !endprocedure
 
 !unquoted procedure END_OSL_LOGO_BOX()
