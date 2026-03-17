@@ -1,13 +1,19 @@
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/palette/hypo-palette.puml
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/theme/hypo-theme.puml
 
-' =====================
-' ETSI HypO Components
-' =====================
+' =======================
+' ETSI HypO Stakeholders
+' =======================
 
-actor "Infra.\nProvider" as InfPrv #000000
-actor "Vertical\nEnd User" as VertEndUser #000000
-actor "Service\nProvider" as SvcPrv #000000
+' Better add them on demand in the workflow
+' actor "Infra.\nProvider" as InfPrv #000000
+' actor "Vertical\nEnd User" as VertEndUser #000000
+' actor "Service\nProvider" as SvcPrv #000000
+' actor "Platform\nAdmin" as PltAdmin #000000
+
+' =======================
+' ETSI HypO Components
+' =======================
 
 HYPO_LOGO_BOX()
 
