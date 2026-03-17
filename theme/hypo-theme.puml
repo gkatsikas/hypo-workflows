@@ -119,7 +119,7 @@ end box
 
 ' ETSI OpenSlice Components
 !unquoted procedure OSL_LOGO_BOX()
-box "<img:https://labs.etsi.org/rep/osl/code/org.etsi.osl.portal.web/-/raw/main/src/images/logo_clear.png{scale=0.2}>" #OSL_COLOR_LIGHT
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=0.2}>" #OSL_COLOR_LIGHT
 !endprocedure
 
 !unquoted procedure END_OSL_LOGO_BOX()
@@ -133,7 +133,7 @@ participant "$name" #OSL_COLOR
 
 !unquoted procedure OSL_INST_LOGO()
 skinparam participantBorderColor DarkOrange
-participant "<img:https://labs.etsi.org/rep/osl/code/org.etsi.osl.portal.web/-/raw/main/src/images/logo_clear.png{scale=0.2}>" #OSL_COLOR
+participant "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=0.2}>" #OSL_COLOR
 !endprocedure
 
 ' Compute Clusters Components
