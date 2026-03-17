@@ -133,7 +133,7 @@ participant "$name" #OSL_COLOR
 
 !unquoted procedure OSL_INST_LOGO()
 skinparam participantBorderColor DarkOrange
-participant "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=0.2}>" #OSL_COLOR
+participant "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=0.8}>" #OSL_COLOR
 !endprocedure
 
 ' Compute Clusters Components
