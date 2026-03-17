@@ -1,7 +1,7 @@
 ```plantuml
 
 ' Uncomment this at the end of your design to see only the linked components
-' hide unlinked
+hide unlinked
 
 ' General templates useful for every workflow
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/palette/hypo-palette.puml
@@ -31,25 +31,25 @@ actor "Platform\nAdmin" as PltAdmin #000000
 
 == Create HypO account on OpenZiti ==
 
-PltAdmin -> "Fabric\nController": Issue new account for ESO
-"Fabric\nController" -> PltAdmin: ESO account created
+PltAdmin -> "Fabric\nController": Issue new account for HypO
+"Fabric\nController" -> PltAdmin: HypO account created
 
-' == Authenticated peering between ESO and OpenZiti ==
+== Authenticated peering between HypO and OpenZiti ==
 
-' PltAdmin -> "ESO\nPortal": Add OpenZiti network
-' "ESO\nPortal" -> "ESO\nBackend": Create network
-' "ESO\nBackend" -> "Fabric\nController": Authenticate with ESO credentials
-' "Fabric\nController" -> "ESO\nBackend": Successful authentication
-' "ESO\nBackend" -> "ESO\nPortal": Network created
-' "ESO\nPortal" -> PltAdmin: OpenZiti network added
+PltAdmin -> Web: Add OpenZiti network
+Web -> Fabric: Create network
+Fabric -> "Fabric\nController": Authenticate with HypO credentials
+"Fabric\nController" -> Fabric: Successful authentication
+Fabric -> Web: Network created
+Web -> PltAdmin: OpenZiti network added
 
-' == Test HypO and OpenZiti interaction ==
+== Test HypO and OpenZiti interaction ==
 
-' PltAdmin -> "ESO\nPortal": Create test OpenZiti identity
-' "ESO\nPortal" -> "ESO\nBackend": Create identity
-' "ESO\nBackend" -> "Fabric\nController": Create identity
-' "Fabric\nController" -> "ESO\nBackend": Identity created
-' "ESO\nBackend" -> "ESO\nPortal": Identity created
-' "ESO\nPortal" -> PltAdmin: Test OpenZiti identity created
+PltAdmin -> Web: Create 'test' OpenZiti identity
+Web -> Fabric: Create identity
+Fabric -> "Fabric\nController": Create identity
+"Fabric\nController" -> Fabric: Identity created
+Fabric -> Web: Identity created
+Web -> PltAdmin: 'test' OpenZiti identity created
 
 ```
