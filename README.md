@@ -32,11 +32,11 @@ The basic templates of this library can be classified in three categories:
 
 ## Platform workflows
 
-An [example workflow](hypo-flow-peering-hypo-openziti.md) shows how ETSI HypO peers with OpenZiti to jointly provide Zero-Trust Networking.
+An [example workflow](flows/peering/hypo-flow-peering-hypo-openziti.md) shows how ETSI HypO peers with OpenZiti to jointly provide Zero-Trust Networking.
 
 ## Preview a Markdown file in VSCode
 
-Open the example workflow file, e.g., [hypo-flow-peering-hypo-openziti](hypo-flow-peering-hypo-openziti.md).
+Open the example workflow file, e.g., [hypo-flow-peering-hypo-openziti](flows/peering/hypo-flow-peering-hypo-openziti.md).
 
 Right click on it and click `Open Preview` or press `Shift+Ctrl+V`.
 
