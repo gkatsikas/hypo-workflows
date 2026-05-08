@@ -39,9 +39,11 @@ HYPO_LOGO_BOX()
         participant SONATA as SONATA
     END_HYPO_BOX()
 
-    HYPO_BOX("Databases")
-        HYPO_DB("TMF\nDB")
-        HYPO_DB("Secrets\nDB")
+    HYPO_BOX("Clients")
+        participant "Telemetry\nClient" as Telemetry_Client
+        participant "OSS\nClient" as OSS_Client
+        participant "Compute\nClient" as Compute_Client
+        FABRIC_CLIENT("Fabric Client\nHypO")
     END_HYPO_BOX()
 
     HYPO_BOX("Service-Manager")
@@ -53,10 +55,9 @@ HYPO_LOGO_BOX()
         participant "Telemetry" as Tel_Manager
     END_HYPO_BOX()
 
-    HYPO_BOX("Clients")
-        participant "OSS\nClient" as OSS_Client
-        participant "Telemetry\nClient" as Telemetry_Client
-        FABRIC_CLIENT("Fabric Client\nHypO")
+    HYPO_BOX("Databases")
+        HYPO_DB("TMF\nDB") as TMF_DB
+        HYPO_DB("Secrets\nDB") as Secrets_DB
     END_HYPO_BOX()
 
 END_HYPO_LOGO_BOX()
