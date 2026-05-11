@@ -18,21 +18,30 @@ actor "Service\nProvider" as SvcPrv #000000
 
 == Kubernetes Service Order Flow ==
 
-SvcPrv -> Web: Authenticate in Portal
-Web -> TMF: Create Kubernetes Service Order
-TMF -> "TMF\nDB": Store Service Order
-TMF -> SONATA: Orchestrate Service Order
-SONATA -> OSS_Client: Order Kubernetes
+SvcPrv -> Web: Authenticate
+SvcPrv -> Web: Browse service marketplace
+SvcPrv -> Web: Find "K8saaS" service specification
+SvcPrv -> Web: Add "K8saaS" service specification into shopping cart
+SvcPrv -> Web: Configure number and flavor of K8s nodes
+SvcPrv -> Web: Place service order
+Web -> TMF: Dispatch service order
+TMF -> "TMF\nDB": Store service order
+TMF -> SONATA: Orchestrate service order
+SONATA -> OSS_Client: Order "K8saaS" from OpenSlice
 OSS_Client -> "ETSI\nOpenSlice"
-OSS_Client -> SONATA: Order Success: return kubeConf file
+"ETSI\nOpenSlice" -> "Cluster\nController": Create
+"ETSI\nOpenSlice" -> "Cluster\nNode": Create (repeated if workers > 1)
+"ETSI\nOpenSlice" -> OSS_Client: Service order state COMPLETED
+OSS_Client -> SONATA: Successful service order:\nkubeConf file is available
 SONATA -> Registry: Store kubeConf
-Registry -> "Secrets\nDB": Store kubeConf with key Kubernetes TMF Service ID
-Registry -> SONATA: Successful Storage of kubeConf
-SONATA -> Fabric: Domain Connection Request for Kubernetes IP and Port
-Fabric -> "Fabric\nController": Create Domain Connection
-"Fabric\nController" -> Fabric: Domain Connection created
-Fabric -> SONATA: Domain Connection Creation Success
-SONATA -> TMF: Update Message: Service State ACTIVE 
-SONATA -> TMF: Update Message: Service Order State COMPLETED 
-
+Registry -> "Secrets\nDB"
+Registry -> SONATA: Successful storage of kubeConf
+SONATA -> Fabric: Establish private connection to Kubernetes
+Fabric -> "Fabric\nController": Create encrypted connection
+"Fabric\nController" -> Fabric: Encrypted connection created
+Fabric -> SONATA: Successful connection
+SONATA -> TMF: Service state ACTIVE
+SONATA -> TMF: Service order state COMPLETED
+TMF -> Web: Service order view update
+Web -> SvcPrv: Successful service order
 ```
