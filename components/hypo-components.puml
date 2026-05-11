@@ -77,4 +77,8 @@ REMOTE_INFRA_BOX("Remote Infrastructure")
         CLUSTER_CTRL("Cluster\nController")
         CLUSTER_NODES("Cluster\nNode")
     END_CLUSTER_LOGO_BOX()
+
+    FIVEG_BOX_LOGO("Network Infrastructure")
+        FIVEG_CTRL("5G\nController")
+    END_FIVEG_BOX_LOGO()
 END_REMOTE_INFRA_BOX()
