@@ -29,7 +29,7 @@ OSS_Client -> "ETSI\nOpenSlice"
 "ETSI\nOpenSlice" -> OSS_Client
 OSS_Client -> SONATA
 SONATA -> TMF: Service state TERMINATED
-TMF -> "TMF\nDB": Store service state TERMINATED
+TMF -> "TMF\nDB": Service state update TERMINATED
 TMF -> Web: Service view update
 Web -> SvcPrv: Successful 5G service termination
 ```

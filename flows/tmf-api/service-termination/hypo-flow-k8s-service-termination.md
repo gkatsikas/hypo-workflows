@@ -33,7 +33,7 @@ Fabric -> "Fabric\nController": Termination of encrypted connection
 "Fabric\nController" -> Fabric: Encrypted connection terminated
 Fabric -> SONATA: Successful connection termination
 SONATA -> TMF: Service state TERMINATED
-TMF -> "TMF\nDB": Store service state TERMINATED
+TMF -> "TMF\nDB": Service state update TERMINATED
 TMF -> Web: Service view update
 Web -> SvcPrv: Successful K8s service termination
 ```

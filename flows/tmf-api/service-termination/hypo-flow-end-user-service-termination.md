@@ -30,7 +30,7 @@ Pkg_Manager -> SONATA
 SONATA -> Telemetry_Client: Delete service telemetry and log dashboards
 Telemetry_Client -> SONATA: Successful deletion of dashboards
 SONATA -> TMF: Service state TERMINATED
-TMF -> "TMF\nDB": Store service state TERMINATED
+TMF -> "TMF\nDB": Service state update TERMINATED
 TMF -> Web: Service view update
 Web -> SvcPrv: Successful end user service termination
 ```
