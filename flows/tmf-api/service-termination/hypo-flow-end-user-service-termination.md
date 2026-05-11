@@ -17,6 +17,7 @@ actor "Service\nProvider" as SvcPrv #000000
 ' =====================
 
 == End User Service Termination Flow ==
+
 SvcPrv -> Web: Retrieve end user service
 Web -> TMF: Service termination request
 TMF -> "TMF\nDB": Service state update PENDING_TERMINATION

@@ -14,10 +14,11 @@ actor "Service\nProvider" as SvcPrv #000000
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/components/hypo-components.puml
 
 ' =====================
-' Kubernetes Service Order
+' Kubernetes Service Termination
 ' =====================
 
 == Kubernetes Service Termination Flow ==
+
 SvcPrv -> Web: Retrieve K8s service
 Web -> TMF: K8s service termination request
 TMF -> "TMF\nDB": Service state update PENDING_TERMINATION

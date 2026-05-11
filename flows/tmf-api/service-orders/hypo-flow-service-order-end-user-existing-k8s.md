@@ -18,7 +18,6 @@ actor "Service\nProvider" as SvcPrv #000000
 
 == End User Service Order Flow ==
 
-SvcPrv -> Web: Authenticate
 SvcPrv -> Web: Browse service marketplace
 SvcPrv -> Web: Add service specification into shopping cart
 SvcPrv -> Web: Configure service registry info and Kubernetes service ID

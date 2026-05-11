@@ -13,10 +13,11 @@ actor "Service\nProvider" as SvcPrv #000000
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/components/hypo-components.puml
 
 ' =====================
-' End User Service Termination
+' Service Update
 ' =====================
 
-== End User Service Update Flow ==
+== Service Update Flow ==
+
 SvcPrv -> Web: Retrieve service
 Web -> TMF: Service characteristic update request
 TMF -> "TMF\nDB": Service state update PENDING_UPDATE

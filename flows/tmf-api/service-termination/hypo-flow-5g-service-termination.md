@@ -18,7 +18,8 @@ actor "Service\nProvider" as SvcPrv #000000
 ' =====================
 
 == 5G Service Termination Flow ==
-SvcPrv -> Web: Retrieve 5G Service
+
+SvcPrv -> Web: Retrieve 5G service
 Web -> TMF: Service termination request
 TMF -> "TMF\nDB": Service state update PENDING_TERMINATION
 TMF -> SONATA: Orchestrate 5G service termination

@@ -18,7 +18,6 @@ actor "Service\nProvider" as SvcPrv #000000
 
 == Kubernetes Service Order Flow ==
 
-SvcPrv -> Web: Authenticate
 SvcPrv -> Web: Browse service marketplace
 SvcPrv -> Web: Find "K8saaS" service specification
 SvcPrv -> Web: Add "K8saaS" service specification into shopping cart

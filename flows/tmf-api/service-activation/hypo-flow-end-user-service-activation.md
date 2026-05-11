@@ -17,6 +17,7 @@ actor "Service\nProvider" as SvcPrv #000000
 ' =====================
 
 == End User Service Activation ==
+
 SvcPrv -> Web: Retrieve inactive service
 Web -> TMF: Service activation request
 TMF -> "TMF\nDB": Service state update PENDING_ACTIVATION

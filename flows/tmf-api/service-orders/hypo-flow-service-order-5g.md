@@ -19,21 +19,20 @@ actor "Service\nProvider" as SvcPrv #000000
 
 == 5G Service Order Flow ==
 
-SvcPrv -> Web: Authenticate
 SvcPrv -> Web: Add 5G service specification into shopping cart
 SvcPrv -> Web: Configure service characteristics
 SvcPrv -> Web: Place service order
 Web -> TMF: Dispatch service order
-TMF -> "TMF\nDB": Store Service Order
-TMF -> SONATA: Orchestrate Service Order
+TMF -> "TMF\nDB": Store service order
+TMF -> SONATA: Orchestrate service order
 SONATA -> OSS_Client: Order 5G from OpenSlice
 OSS_Client -> "ETSI\nOpenSlice"
 "ETSI\nOpenSlice" -> "5G\nSystem": Deploy
 "5G\nSystem" -> "ETSI\nOpenSlice": Successful 5G deployment
 "ETSI\nOpenSlice" -> OSS_Client
-OSS_Client -> SONATA: Order Success
+OSS_Client -> SONATA: Successful 5G service order
 SONATA -> TMF: Service state ACTIVE
 SONATA -> TMF: Service order state COMPLETED
 TMF -> Web: Service order view update
-Web -> SvcPrv: Successful service order
+Web -> SvcPrv: Successful 5G service order
 ```
