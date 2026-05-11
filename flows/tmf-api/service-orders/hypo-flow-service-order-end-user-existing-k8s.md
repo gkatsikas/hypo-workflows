@@ -30,9 +30,15 @@ SONATA -> Pkg_Manager: Parse service package
 Pkg_Manager -> SONATA: Successful parsing
 SONATA -> Pkg_Manager: Deploy service package
 Pkg_Manager -> Compute_Client
-Compute_Client -> Pkg_Manager: Successful deployment
-Pkg_Manager -> SONATA
-SONATA -> Telemetry_Client: Create service telemetry and log dashboards
+Compute_Client -> "Cluster\nController": Deploy
+"Cluster\nController" -> Compute_Client: Successful deployment
+Compute_Client -> Pkg_Manager:
+Pkg_Manager -> SONATA: Successful service package deployment
+SONATA -> Telemetry_Client: Create service telemetry dashboard
+Telemetry_Client -> Telemetry_Manager: Register service metrics
+Telemetry_Manager -> "Cluster\nController": Pull metrics
+Telemetry_Client -> Dashboard_Manager: Design metrics' dashboard
+Dashboard_Manager -> Telemetry_Manager: Pull metrics' values
 Telemetry_Client -> SONATA: Successful reporting of dashboards
 SONATA -> TMF: Service state ACTIVE
 SONATA -> TMF: Service order state COMPLETED
