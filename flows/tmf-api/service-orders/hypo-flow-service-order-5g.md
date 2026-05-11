@@ -14,10 +14,10 @@ actor "Service\nProvider" as SvcPrv #000000
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/components/hypo-components.puml
 
 ' =====================
-' OSS Service Order
+' 5G Service Order
 ' =====================
 
-== OSS Service Order Flow ==
+== 5G Service Order Flow ==
 
 SvcPrv -> Web: Authenticate in Portal
 Web -> TMF: Create Kubernetes Service Order
