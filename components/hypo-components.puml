@@ -23,10 +23,10 @@ HYPO_LOGO_BOX()
     END_HYPO_BOX()
 
     HYPO_BOX("API")
-        participant TMF as TMF
-        participant Peering as Peering
-        participant Registry as Registry
-        participant Fabric as Fabric
+        participant "TMF\nAPI" as TMF
+        participant "Peering\nAPI" as Peering
+        participant "Registry\nAPI" as Registry
+        participant "Fabric\nAPI" as Fabric
     END_HYPO_BOX()
 
     HYPO_BOX("Orchestrator")
