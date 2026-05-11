@@ -34,12 +34,23 @@ Compute_Client -> "Cluster\nController": Deploy
 "Cluster\nController" -> Compute_Client: Successful deployment
 Compute_Client -> Pkg_Manager:
 Pkg_Manager -> SONATA: Successful service package deployment
-SONATA -> Telemetry_Client: Create service telemetry dashboard
+SONATA -> Telemetry_Client: Create service telemetry and log dashboards
+
+note over Dashboard_Manager, "Cluster\nController": Service telemetry setup
 Telemetry_Client -> Telemetry_Manager: Register service metrics
 Telemetry_Manager -> "Cluster\nController": Pull metrics
 Telemetry_Client -> Dashboard_Manager: Design metrics' dashboard
 Dashboard_Manager -> Telemetry_Manager: Pull metrics' values
-Telemetry_Client -> SONATA: Successful reporting of dashboards
+Telemetry_Client -> SONATA: Telemetry dashboard created
+
+note over Dashboard_Manager, "Cluster\nController": Service logs setup
+Telemetry_Client -> Log_Manager: Request service logs
+Log_Manager -> "Cluster\nController": Subscribe to logs
+"Cluster\nController" -> Log_Manager: Logs reporting
+Log_Manager -> Dashboard_Manager: Populate service logs on dashboard
+Log_Manager -> Telemetry_Client: Successful logs reporting
+Telemetry_Client -> SONATA: Log dashboard created
+
 SONATA -> TMF: Service state ACTIVE
 SONATA -> TMF: Service order state COMPLETED
 TMF -> Web: Service order view update
