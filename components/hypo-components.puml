@@ -29,28 +29,27 @@ HYPO_LOGO_BOX()
         participant Fabric as Fabric
     END_HYPO_BOX()
 
-    HYPO_BUS("Service\nBus")
-
-    HYPO_BOX("Authentication")
-        participant "Authentication" as Auth_Manager
-    END_HYPO_BOX()
-
     HYPO_BOX("Orchestrator")
         participant SONATA as SONATA
     END_HYPO_BOX()
+
+    HYPO_BUS("Service\nBus")
 
     HYPO_BOX("Service-Manager")
         participant "Package\nManager" as Pkg_Manager
         participant "Service\nMonitor" as Svc_Monitor
     END_HYPO_BOX()
 
-    HYPO_BOX("Telemetry")
-        participant "Telemetry" as Tel_Manager
-    END_HYPO_BOX()
-
     HYPO_BOX("Databases")
         HYPO_DB("TMF\nDB")
         HYPO_DB("Secrets\nDB")
+    END_HYPO_BOX()
+
+    HYPO_BOX("Auxiliary Services")
+        participant "Identity & Access\nManager" as Auth_Manager
+        participant "Dashboard\nManager" as Dashboard_Manager
+        participant "Telemetry\nManager" as Telemetry_Manager
+        participant "Log\nManager" as Log_Manager
     END_HYPO_BOX()
 
     HYPO_BOX("Clients")
