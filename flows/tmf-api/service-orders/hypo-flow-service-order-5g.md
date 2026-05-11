@@ -19,12 +19,18 @@ actor "Service\nProvider" as SvcPrv #000000
 
 == 5G Service Order Flow ==
 
-SvcPrv -> Web: Authenticate in Portal
-Web -> TMF: Create Kubernetes Service Order
+SvcPrv -> Web: Authenticate
+SvcPrv -> Web: Add 5G service specification into shopping cart
+SvcPrv -> Web: Configure service characteristics
+SvcPrv -> Web: Place service order
+Web -> TMF: Dispatch service order
 TMF -> "TMF\nDB": Store Service Order
 TMF -> SONATA: Orchestrate Service Order
-SONATA -> OSS_Client: Order Service
+SONATA -> OSS_Client: Order 5G from OpenSlice
+OSS_Client -> "ETSI\nOpenSlice"
 OSS_Client -> SONATA: Order Success
-SONATA -> TMF: Update Message: Service State ACTIVE 
-SONATA -> TMF: Update Message: Service Order State COMPLETED 
+SONATA -> TMF: Service state ACTIVE
+SONATA -> TMF: Service order state COMPLETED
+TMF -> Web: Service order view update
+Web -> SvcPrv: Successful service order
 ```
