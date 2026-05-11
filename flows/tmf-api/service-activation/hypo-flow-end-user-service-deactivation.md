@@ -21,7 +21,7 @@ actor "Service\nProvider" as SvcPrv #000000
 SvcPrv -> Web: Authenticate
 SvcPrv -> Web: Retrieve Active Service
 Web -> TMF: Submit a Service Deactivation 
-TMF -> "TMF_DB": Service state update PENDING_DEACTIVATION
+TMF -> "TMF\nDB": Service state update PENDING_DEACTIVATION
 TMF -> SONATA: Orchestrate Service Update
 SONATA -> Pkg_Manager: Request to Deactivate Service
 Pkg_Manager -> SONATA: Successful Service Deactivation

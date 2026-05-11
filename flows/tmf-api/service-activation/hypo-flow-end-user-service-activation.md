@@ -21,7 +21,7 @@ actor "Service\nProvider" as SvcPrv #000000
 SvcPrv -> Web: Authenticate
 SvcPrv -> Web: Retrieve Inactive Service
 Web -> TMF: Submit a Service Activation 
-TMF -> "TMF_DB": Service state update PENDING_ACTIVATION
+TMF -> "TMF\nDB": Service state update PENDING_ACTIVATION
 TMF -> SONATA: Orchestrate Service Update
 SONATA -> Pkg_Manager: Request to Activate Service
 Pkg_Manager -> SONATA: Successful Service Activation
