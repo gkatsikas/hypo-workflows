@@ -56,8 +56,8 @@ HYPO_LOGO_BOX()
     END_HYPO_BOX()
 
     HYPO_BOX("Databases")
-        HYPO_DB("TMF\nDB") as TMF_DB
-        HYPO_DB("Secrets\nDB") as Secrets_DB
+        HYPO_DB("TMF\nDB")
+        HYPO_DB("Secrets\nDB")
     END_HYPO_BOX()
 
 END_HYPO_LOGO_BOX()
