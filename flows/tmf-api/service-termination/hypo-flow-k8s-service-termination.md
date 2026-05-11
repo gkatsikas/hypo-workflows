@@ -25,7 +25,7 @@ TMF -> "TMF\nDB": Service state update PENDING_TERMINATION
 TMF -> SONATA: Orchestrate K8s Service Termination
 SONATA -> OSS_Client: Terminate Kubernetes Service
 OSS_Client -> "ETSI\nOpenSlice"
-"ETSI\nOpenSlice" -> OSS_Client: Succesful Service Termination
+"ETSI\nOpenSlice" -> OSS_Client: Successful Service Termination
 OSS_Client -> SONATA: Report Success
 SONATA -> Fabric: Terminate private connection to Kubernetes
 Fabric -> "Fabric\nController": Termination encrypted connection

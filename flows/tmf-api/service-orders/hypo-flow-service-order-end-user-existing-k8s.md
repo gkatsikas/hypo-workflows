@@ -29,7 +29,9 @@ TMF -> SONATA: Orchestrate service order
 SONATA -> Pkg_Manager: Parse service package
 Pkg_Manager -> SONATA: Successful parsing
 SONATA -> Pkg_Manager: Deploy service package
-Pkg_Manager -> SONATA: Successful deployment
+Pkg_Manager -> Compute_Client
+Compute_Client -> Pkg_Manager: Successful deployment
+Pkg_Manager -> SONATA
 SONATA -> Telemetry_Client: Create service telemetry and log dashboards
 Telemetry_Client -> SONATA: Successful reporting of dashboards
 SONATA -> TMF: Service state ACTIVE

@@ -20,10 +20,12 @@ actor "Service\nProvider" as SvcPrv #000000
 SvcPrv -> Web: Authenticate
 SvcPrv -> Web: Retrieve Service
 Web -> TMF: Submit a Service Termination 
-TMF -> "TMF\nDB: Service state update PENDING_TERMINATION
+TMF -> "TMF\nDB": Service state update PENDING_TERMINATION
 TMF -> SONATA: Orchestrate Service Termination
 SONATA -> Pkg_Manager: Delete service package deployment
-Pkg_Manager -> SONATA: Successful deployment deletion
+Pkg_Manager -> Compute_Client
+Compute_Client -> Pkg_Manager: Successful deployment deletion
+Pkg_Manager -> SONATA
 SONATA -> Telemetry_Client: Delete service telemetry and log dashboards
 Telemetry_Client -> SONATA: Successful deletion of dashboards
 SONATA -> TMF: Service state TERMINATED

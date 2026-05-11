@@ -24,6 +24,8 @@ Web -> TMF: Submit a Service Deactivation
 TMF -> "TMF\nDB": Service state update PENDING_DEACTIVATION
 TMF -> SONATA: Orchestrate Service Update
 SONATA -> Pkg_Manager: Request to Deactivate Service
+Pkg_Manager -> Compute_Client: Uninstall Service In Cluster
+Compute_Client -> Pkg_Manager: Successful uninstallation
 Pkg_Manager -> SONATA: Successful Service Deactivation
 SONATA -> TMF: Service state INACTIVE
 TMF -> "TMF\nDB": Store Service state INACTIVE
