@@ -17,17 +17,18 @@ actor "Service\nProvider" as SvcPrv #000000
 ' =====================
 
 == End User Service Update Flow ==
-SvcPrv -> Web: Authenticate
-SvcPrv -> Web: Retrieve Service
-Web -> TMF: Submit a Service Package Characteristic Update 
+SvcPrv -> Web: Retrieve service
+Web -> TMF: Service characteristic update request
 TMF -> "TMF\nDB": Service state update PENDING_UPDATE
-TMF -> SONATA: Orchestrate Service Update
+TMF -> SONATA: Orchestrate service update
 SONATA -> Pkg_Manager: Update service deployment
 Pkg_Manager -> Compute_Client
-Compute_Client -> Pkg_Manager: Successful deployment update
+Compute_Client -> "Cluster\nController"
+"Cluster\nController" -> Compute_Client: Successful service update
+Compute_Client -> Pkg_Manager
 Pkg_Manager -> SONATA
-SONATA -> TMF: Complete Service Update
-TMF -> "TMF\nDB": Store Previous State and Updated Characteristics
+SONATA -> TMF: Complete service update
+TMF -> "TMF\nDB": Store previous state and updated characteristics
 TMF -> Web: Service view update
 Web -> SvcPrv: Successful service update
 ```
