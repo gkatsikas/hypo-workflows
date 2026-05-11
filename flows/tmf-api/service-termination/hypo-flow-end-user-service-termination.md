@@ -16,20 +16,21 @@ actor "Service\nProvider" as SvcPrv #000000
 ' End User Service Termination
 ' =====================
 
-== End User Service Terminate Flow ==
-SvcPrv -> Web: Authenticate
-SvcPrv -> Web: Retrieve Service
-Web -> TMF: Submit a Service Termination 
+== End User Service Termination Flow ==
+SvcPrv -> Web: Retrieve end user service
+Web -> TMF: Service termination request
 TMF -> "TMF\nDB": Service state update PENDING_TERMINATION
-TMF -> SONATA: Orchestrate Service Termination
-SONATA -> Pkg_Manager: Delete service package deployment
+TMF -> SONATA: Orchestrate end user service termination
+SONATA -> Pkg_Manager: Deprovision service package
 Pkg_Manager -> Compute_Client
-Compute_Client -> Pkg_Manager: Successful deployment deletion
+Compute_Client -> "Cluster\nController"
+"Cluster\nController" -> Compute_Client: Service package deprovisioned
+Compute_Client -> Pkg_Manager
 Pkg_Manager -> SONATA
 SONATA -> Telemetry_Client: Delete service telemetry and log dashboards
 Telemetry_Client -> SONATA: Successful deletion of dashboards
 SONATA -> TMF: Service state TERMINATED
-TMF -> "TMF\nDB": Store Service state TERMINATED
+TMF -> "TMF\nDB": Store service state TERMINATED
 TMF -> Web: Service view update
-Web -> SvcPrv: Successful service termination
+Web -> SvcPrv: Successful end user service termination
 ```

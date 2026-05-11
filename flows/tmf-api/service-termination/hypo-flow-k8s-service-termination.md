@@ -18,21 +18,22 @@ actor "Service\nProvider" as SvcPrv #000000
 ' =====================
 
 == Kubernetes Service Termination Flow ==
-SvcPrv -> Web: Authenticate
-SvcPrv -> Web: Retrieve K8s Service
-Web -> TMF: Submit a Service Termination 
+SvcPrv -> Web: Retrieve K8s service
+Web -> TMF: K8s service termination request
 TMF -> "TMF\nDB": Service state update PENDING_TERMINATION
-TMF -> SONATA: Orchestrate K8s Service Termination
-SONATA -> OSS_Client: Terminate Kubernetes Service
+TMF -> SONATA: Orchestrate K8s service termination
+SONATA -> OSS_Client: Terminate K8s service
 OSS_Client -> "ETSI\nOpenSlice"
-"ETSI\nOpenSlice" -> OSS_Client: Successful Service Termination
-OSS_Client -> SONATA: Report Success
+"ETSI\nOpenSlice" -> "Cluster\nNode": Tear down
+"ETSI\nOpenSlice" -> "Cluster\nController": Tear down
+"ETSI\nOpenSlice" -> OSS_Client: Successful K8s service termination
+OSS_Client -> SONATA
 SONATA -> Fabric: Terminate private connection to Kubernetes
-Fabric -> "Fabric\nController": Termination encrypted connection
-"Fabric\nController" -> Fabric: Encrypted connection termination
+Fabric -> "Fabric\nController": Termination of encrypted connection
+"Fabric\nController" -> Fabric: Encrypted connection terminated
 Fabric -> SONATA: Successful connection termination
 SONATA -> TMF: Service state TERMINATED
-TMF -> "TMF\nDB": Store Service state TERMINATED
+TMF -> "TMF\nDB": Store service state TERMINATED
 TMF -> Web: Service view update
 Web -> SvcPrv: Successful K8s service termination
 ```
