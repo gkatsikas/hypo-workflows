@@ -18,17 +18,18 @@ actor "Service\nProvider" as SvcPrv #000000
 
 == End User Service Deactivation Flow ==
 
-SvcPrv -> Web: Authenticate
-SvcPrv -> Web: Retrieve Active Service
-Web -> TMF: Submit a Service Deactivation 
+SvcPrv -> Web: Retrieve active service
+Web -> TMF: Service deactivation request
 TMF -> "TMF\nDB": Service state update PENDING_DEACTIVATION
-TMF -> SONATA: Orchestrate Service Update
-SONATA -> Pkg_Manager: Request to Deactivate Service
-Pkg_Manager -> Compute_Client: Uninstall Service In Cluster
-Compute_Client -> Pkg_Manager: Successful uninstallation
-Pkg_Manager -> SONATA: Successful Service Deactivation
+TMF -> SONATA: Orchestrate service update
+SONATA -> Pkg_Manager: Deactivate service
+Pkg_Manager -> Compute_Client
+Compute_Client -> "Cluster\nController"
+"Cluster\nController" -> Compute_Client: Successful service deactivation
+Compute_Client -> Pkg_Manager
+Pkg_Manager -> SONATA
 SONATA -> TMF: Service state INACTIVE
-TMF -> "TMF\nDB": Store Service state INACTIVE
+TMF -> "TMF\nDB": Service state update INACTIVE
 TMF -> Web: Service view update
 Web -> SvcPrv: Successful service update
 ```
