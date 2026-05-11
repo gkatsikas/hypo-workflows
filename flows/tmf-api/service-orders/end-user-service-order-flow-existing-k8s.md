@@ -18,15 +18,22 @@ actor "Service\nProvider" as SvcPrv #000000
 
 == End User Service Order Flow ==
 
-SvcPrv -> Web: Authenticate in Portal
-Web -> TMF: Create End User Service Order: provide Registry Info and Kubernetes Service ID 
-TMF -> SONATA: Orchestrate Service Order
-SONATA -> Pkg_Manager: Parse Helm Engine Chart: Provide Registry Info
-Pkg_Manager -> SONATA: Parse Successful
-SONATA -> Pkg_Manager: Deploy Helm Engine Chart: Provide Kubernetes Service Id for deployment
-Pkg_Manager -> SONATA: Deployment Successful
-SONATA -> Telemetry_Client: Create Grafana and Loki Dashboards for service
-Telemetry_Client -> SONATA: Report Success
-SONATA -> TMF: Update Message: Service State ACTIVE 
-SONATA -> TMF: Update Message: Service Order State COMPLETED 
+SvcPrv -> Web: Authenticate
+SvcPrv -> Web: Browse service marketplace
+SvcPrv -> Web: Add service specification into shopping cart
+SvcPrv -> Web: Configure service registry info and Kubernetes service ID
+SvcPrv -> Web: Place service order
+Web -> TMF: Dispatch service order
+TMF -> "TMF\nDB": Store service order
+TMF -> SONATA: Orchestrate service order
+SONATA -> Pkg_Manager: Parse service package
+Pkg_Manager -> SONATA: Successful parsing
+SONATA -> Pkg_Manager: Deploy service package
+Pkg_Manager -> SONATA: Successful deployment
+SONATA -> Telemetry_Client: Create service telemetry and log dashboards
+Telemetry_Client -> SONATA: Successful reporting of dashboards
+SONATA -> TMF: Service state ACTIVE
+SONATA -> TMF: Service order state COMPLETED
+TMF -> Web: Service order view update
+Web -> SvcPrv: Successful service order
 ```
