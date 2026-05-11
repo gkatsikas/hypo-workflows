@@ -164,3 +164,17 @@ collections "<img:https://raw.githubusercontent.com/kubernetes/kubernetes/refs/h
 skinparam collectionsBorderColor black
 collections "$name" #CLUSTER_NODES_COLOR
 !endprocedure
+
+' 5G Components
+!unquoted procedure FIVEG_BOX_LOGO($name)
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_5g.png{scale=1.0}>\n\n$name" #FIVEG_BOX_COLOR
+!endprocedure
+
+!unquoted procedure END_FIVEG_BOX_LOGO()
+end box
+!endprocedure
+
+!unquoted procedure FIVEG_CTRL($name)
+skinparam participantBorderColor HYPO_RED_1
+participant "$name" #FIVEG_CTRL_COLOR
+!endprocedure
