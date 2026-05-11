@@ -174,7 +174,7 @@ box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/
 end box
 !endprocedure
 
-!unquoted procedure FIVEG_CTRL($name)
+!unquoted procedure FIVEG_SYSTEM($name)
 skinparam participantBorderColor HYPO_RED_1
-participant "$name" #FIVEG_CTRL_COLOR
+participant "$name" #FIVEG_SYS_COLOR
 !endprocedure
