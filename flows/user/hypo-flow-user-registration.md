@@ -7,8 +7,7 @@ hide unlinked
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/theme/hypo-theme.puml
 
 ' Define the stakeholders of this workflow
-actor "Service\nProvider" as SvcPrv #000000
-actor "Platform\nAdmin" as PltAdmin #000000
+actor "User" as User #000000
 
 ' General template providing the ETSI HypO components
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/components/hypo-components.puml
@@ -19,14 +18,15 @@ actor "Platform\nAdmin" as PltAdmin #000000
 
 == User login Flow ==
 
-SvcPrv -> Web: User arrives in HypO Portal and presses sign in button
-Web -> Auth_Manager: Portal redirects to IAM
-SvcPrv -> Auth_Manager: Enters credentials
-Auth_Manager -> Web: Redirect back to Portal
-Web -> SvcPrv: Ask for info in order to create a new tmf party individual
-SvcPrv -> Web: User types required information and fills in organization if it exists
-Web -> TMF: Creation of tmf party individual to reflect IAM user
-Web -> Dashboard_Manager: Creation of a user dashboard 
-Web -> SvcPrv: Successful login and redirect to Portal's landing page
+User -> Web: Sign in
+Web -> Auth_Manager: Redirect to IAM
+User -> Auth_Manager: Insert credentials
+Auth_Manager -> Web: Successful authentication: redirect
+Web -> User: Fill in TMF Party form
+User -> Web: Insert individual party information and\npotential organization party (if any)
+Web -> TMF: Create TMF Party individual/organization
+TMF -> "TMF\nDB": Store TMF Party individual/organization
+Web -> Dashboard_Manager: Create user account and dashboard
+Web -> User: Successful login and redirect to Portal's landing page
 
 ```
