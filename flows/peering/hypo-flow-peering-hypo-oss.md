@@ -20,7 +20,7 @@ actor "Platform\nAdmin" as PltAdmin #000000
 
 == Peering preparation: Reflect remote OSS as a TMF Party Organization ==
 
-PltAdmin -> Web: Fill in peering information
+PltAdmin -> Web: Fill in peering information (credentials, location)
 Web -> TMF: Create an organization party
 TMF -> "TMF\nDB": Store organization party
 "TMF\nDB" -> TMF: Organization party stored
@@ -29,16 +29,17 @@ Web -> Peering: Send organization party information
 
 == Peering initiation: Pull services from remote OSS ==
 
+Peering -> "ETSI\nOpenSlice": Authenticate
 Peering -> "ETSI\nOpenSlice": Retrieve service specifications
-Peering -> Web: Service specifications retrieved
-Web -> Peering: Admin chooses the service specifications to import into HypO's catalog(s)
+Peering -> Web: Visualize retrieved service specifications
+PltAdmin -> Web: Select desired service specifications to import into HypO's catalog(s)
+Web -> Peering: Force selection
 Peering -> "ETSI\nOpenSlice": Request service specification details
 "ETSI\nOpenSlice" -> Peering: Service specification details retrieved
 
 == Peering persistence: Store remote OSS services locally ==
 
-Peering -> "Service\nBus": Dispatch service specification details to database
-"Service\nBus" -> TMF: Service specification details dispatched
+Peering -> TMF: Dispatch service specification details
 TMF -> "TMF\nDB": Store service specification details
 "TMF\nDB" -> TMF: Service specification details stored
 
@@ -46,6 +47,7 @@ TMF -> "TMF\nDB": Store service specification details
 
 Peering -> Web: Peering successfully concluded
 Web -> PltAdmin: Remote OSS service specifications in Marketplace
+Web -> PltAdmin: Remote OSS icon on ETSI HypO's map
 
 == Periodic peering check ==
 
@@ -53,6 +55,5 @@ loop every 5 minutes
 Peering -> "ETSI\nOpenSlice": Request service specification details
 "ETSI\nOpenSlice" -> Peering: Service specification details retrieved
 end
-
 
 ```
