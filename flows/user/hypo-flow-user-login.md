@@ -25,6 +25,7 @@ User -> Auth_Manager: Insert credentials
 Auth_Manager -> Web: Successful authentication: redirect
 Web -> User: Fill in TMF party form
 User -> Web: Insert individual party information and\npotential organization party (if any)
+note over User, TMF: If an organization party was created during registration,\nit is linked with the individual party created here
 Web -> TMF: Create TMF party individual\n(optionally with related organization party)
 TMF -> "TMF\nDB": Store TMF party individual
 Web -> Dashboard_Manager: Create user account and dashboard
