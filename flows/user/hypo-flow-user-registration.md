@@ -1,4 +1,5 @@
 ```plantuml
+
 hide unlinked
 ' Uncomment this at the end of your design to see only the linked components
 
@@ -8,25 +9,23 @@ hide unlinked
 
 ' Define the stakeholders of this workflow
 actor "User" as User #000000
+actor "Platform\nAdmin" as PltAdmin #000000
 
 ' General template providing the ETSI HypO components
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/components/hypo-components.puml
 
 ' =====================
-' User login
+' User registration
 ' =====================
 
-== User login Flow ==
+== User registration flow ==
 
-User -> Web: Sign in
-Web -> Auth_Manager: Redirect to IAM
-User -> Auth_Manager: Insert credentials
-Auth_Manager -> Web: Successful authentication: redirect
-Web -> User: Fill in TMF Party form
-User -> Web: Insert individual party information and\npotential organization party (if any)
-Web -> TMF: Create TMF Party individual/organization
-TMF -> "TMF\nDB": Store TMF Party individual/organization
-Web -> Dashboard_Manager: Create user account and dashboard
-Web -> User: Successful login and redirect to Portal's landing page
+User -> PltAdmin: Request an account
+PltAdmin -> User: Ask for relevant user information
+User -> PltAdmin: Provide the requested info
+PltAdmin -> Auth_Manager: Create IAM user and assign user to group
+PltAdmin -> TMF: (Optional) Create a TMF organization party\n(if user belongs to an organization)
+TMF -> "TMF\nDB": (Optional) Store TMF organization party
+PltAdmin -> User: Share credentials with user
 
 ```
