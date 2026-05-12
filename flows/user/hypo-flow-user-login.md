@@ -9,30 +9,25 @@ hide unlinked
 
 ' Define the stakeholders of this workflow
 actor "User" as User #000000
-actor "Platform\nAdmin" as PltAdmin #000000
 
 ' General template providing the ETSI HypO components
 !includeurl https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/components/hypo-components.puml
 
 ' =====================
-' User creation and login
+' User login
 ' =====================
-
-== User creation flow ==
-
-User -> PltAdmin: Request an account
-PltAdmin -> User: Ask for information about partner organization
-User -> PltAdmin: Provide the requested info
-PltAdmin -> Auth_Manager: Create IAM user and assign user to group
-PltAdmin -> TMF: (Optional) Create a TMF organization party\n(if user belongs to an organization)
-TMF -> "TMF\nDB": (Optional) Store TMF organization party
-PltAdmin -> User: Share credentials with user
 
 == User login flow ==
 
-User -> Web: Login with credentials
-Web -> Auth_Manager: Authenticate
-Auth_Manager -> Web: Successful authentication
-Web -> User: Welcome to HypO's landing page
+User -> Web: Sign in
+Web -> Auth_Manager: Redirect to IAM
+User -> Auth_Manager: Insert credentials
+Auth_Manager -> Web: Successful authentication: redirect
+Web -> User: Fill in TMF party form
+User -> Web: Insert individual party information and\npotential organization party (if any)
+Web -> TMF: Create TMF party individual\n(optionally with related organization party)
+TMF -> "TMF\nDB": Store TMF party individual
+Web -> Dashboard_Manager: Create user account and dashboard
+Web -> User: Successful login and redirect to Portal's landing page
 
 ```
