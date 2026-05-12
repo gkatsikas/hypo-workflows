@@ -40,7 +40,6 @@ Telemetry_Client -> Telemetry_Manager: Register service metrics
 Telemetry_Manager -> "Cluster\nController": Pull metrics
 Telemetry_Client -> Dashboard_Manager: Design metrics' dashboard
 Dashboard_Manager -> Telemetry_Manager: Pull metrics' values
-Telemetry_Client -> SONATA: Telemetry dashboard created
 
 note over Dashboard_Manager, "Cluster\nController": Service logs setup
 Telemetry_Client -> Log_Manager: Request service logs
@@ -48,7 +47,7 @@ Log_Manager -> "Cluster\nController": Subscribe to logs
 "Cluster\nController" -> Log_Manager: Logs reporting
 Log_Manager -> Dashboard_Manager: Populate service logs on dashboard
 Log_Manager -> Telemetry_Client: Successful logs reporting
-Telemetry_Client -> SONATA: Log dashboard created
+Telemetry_Client -> SONATA: Telemetry and Log dashboard created
 
 SONATA -> TMF: Service state ACTIVE
 SONATA -> TMF: Service order state COMPLETED
