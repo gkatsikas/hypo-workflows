@@ -28,7 +28,7 @@ skinparam NoteBorderColor black
 
 ' Padding
 skinparam BoxPadding 10
-skinparam ParticipantPadding 10
+' skinparam ParticipantPadding 10
 
 ' Actors shall have obvious outline
 skinparam actor {
@@ -119,7 +119,7 @@ end box
 
 ' ETSI OpenSlice Components
 !unquoted procedure OSL_LOGO_BOX()
-box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=0.8}>" #OSL_COLOR_LIGHT
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=1.0}>" #OSL_COLOR_LIGHT
 !endprocedure
 
 !unquoted procedure END_OSL_LOGO_BOX()
@@ -133,7 +133,7 @@ participant "$name" #OSL_COLOR
 
 !unquoted procedure OSL_INST_LOGO()
 skinparam participantBorderColor DarkOrange
-participant "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=0.8}>" #OSL_COLOR
+participant "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_osl.png{scale=1.0}>" #OSL_COLOR
 !endprocedure
 
 ' Compute Clusters Components
@@ -163,4 +163,18 @@ collections "<img:https://raw.githubusercontent.com/kubernetes/kubernetes/refs/h
 !unquoted procedure CLUSTER_NODES($name)
 skinparam collectionsBorderColor black
 collections "$name" #CLUSTER_NODES_COLOR
+!endprocedure
+
+' 5G Components
+!unquoted procedure FIVEG_BOX_LOGO($name)
+box "<img:https://raw.githubusercontent.com/gkatsikas/hypo-workflows/refs/heads/main/images/logo_5g.png{scale=1.0}>\n\n$name" #FIVEG_BOX_COLOR
+!endprocedure
+
+!unquoted procedure END_FIVEG_BOX_LOGO()
+end box
+!endprocedure
+
+!unquoted procedure FIVEG_SYSTEM($name)
+skinparam participantBorderColor HYPO_RED_1
+participant "$name" #FIVEG_SYS_COLOR
 !endprocedure

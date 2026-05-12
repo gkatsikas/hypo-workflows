@@ -23,20 +23,21 @@ HYPO_LOGO_BOX()
     END_HYPO_BOX()
 
     HYPO_BOX("API")
-        participant TMF as TMF
-        participant Peering as Peering
-        participant Registry as Registry
-        participant Fabric as Fabric
-    END_HYPO_BOX()
-
-    HYPO_BUS("Service\nBus")
-
-    HYPO_BOX("Authentication")
-        participant "Authentication" as Auth_Manager
+        participant "TMF\nAPI" as TMF
+        participant "Peering\nAPI" as Peering
+        participant "Registry\nAPI" as Registry
+        participant "Fabric\nAPI" as Fabric
     END_HYPO_BOX()
 
     HYPO_BOX("Orchestrator")
         participant SONATA as SONATA
+    END_HYPO_BOX()
+
+    HYPO_BUS("Service\nBus")
+
+    HYPO_BOX("Service-Manager")
+        participant "Package\nManager" as Pkg_Manager
+        participant "Service\nMonitor" as Svc_Monitor
     END_HYPO_BOX()
 
     HYPO_BOX("Databases")
@@ -44,18 +45,17 @@ HYPO_LOGO_BOX()
         HYPO_DB("Secrets\nDB")
     END_HYPO_BOX()
 
-    HYPO_BOX("Service-Manager")
-        participant "Package\nManager" as Pkg_Manager
-        participant "Service\nMonitor" as Svc_Monitor
-    END_HYPO_BOX()
-
-    HYPO_BOX("Telemetry")
-        participant "Telemetry" as Tel_Manager
+    HYPO_BOX("Auxiliary Services")
+        participant "Identity & Access\nManager" as Auth_Manager
+        participant "Dashboard\nManager" as Dashboard_Manager
+        participant "Telemetry\nManager" as Telemetry_Manager
+        participant "Log\nManager" as Log_Manager
     END_HYPO_BOX()
 
     HYPO_BOX("Clients")
-        participant "OSS\nClient" as OSS_Client
         participant "Telemetry\nClient" as Telemetry_Client
+        participant "OSS\nClient" as OSS_Client
+        participant "Compute\nClient" as Compute_Client
         FABRIC_CLIENT("Fabric Client\nHypO")
     END_HYPO_BOX()
 
@@ -76,4 +76,8 @@ REMOTE_INFRA_BOX("Remote Infrastructure")
         CLUSTER_CTRL("Cluster\nController")
         CLUSTER_NODES("Cluster\nNode")
     END_CLUSTER_LOGO_BOX()
+
+    FIVEG_BOX_LOGO("Network Infrastructure")
+        FIVEG_SYSTEM("5G\nSystem")
+    END_FIVEG_BOX_LOGO()
 END_REMOTE_INFRA_BOX()
