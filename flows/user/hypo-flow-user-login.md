@@ -28,7 +28,7 @@ User -> Web: Insert individual party information and\npotential organization par
 note over User, TMF: If an organization party was created during registration,\nit is linked with the individual party created here
 Web -> TMF: Create TMF party individual\n(optionally with related organization party)
 TMF -> "TMF\nDB": Store TMF party individual
-Web -> Dashboard_Manager: Create user account and dashboard
+Web -> Dashboard_Manager: Create user account
 Web -> User: Successful login and redirect to Portal's landing page
 
 ```
