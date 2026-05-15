@@ -32,8 +32,14 @@ Web -> Peering: Send organization party information
 Peering -> "ETSI\nOpenSlice": Authenticate
 Peering -> "ETSI\nOpenSlice": Retrieve service specifications
 Peering -> Web: Visualize retrieved service specifications
-PltAdmin -> Web: Select desired service specifications to import into HypO's catalog(s)
-Web -> Peering: Force selection
+PltAdmin -> Web: Select desired service specifications
+alt#White #Gold Use existing service catalogue/category
+    PltAdmin -> Web: Select existing catalogue/category
+else Create new service catalogue/category
+    PltAdmin -> Web: Input new catalogue/category
+    Web -> TMF: Create new catalogue/category
+end
+Web -> Peering: Force selection of services
 Peering -> "ETSI\nOpenSlice": Request service specification details
 "ETSI\nOpenSlice" -> Peering: Service specification details retrieved
 
@@ -51,7 +57,7 @@ Web -> PltAdmin: Remote OSS icon on ETSI HypO's map
 
 == Periodic peering check ==
 
-loop every 5 minutes
+loop#White #Gold every 5 minutes
 Peering -> "ETSI\nOpenSlice": Request service specification details
 "ETSI\nOpenSlice" -> Peering: Service specification details retrieved
 end
