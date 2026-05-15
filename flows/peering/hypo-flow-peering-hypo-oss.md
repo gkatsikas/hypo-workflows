@@ -59,7 +59,12 @@ Web -> PltAdmin: Remote OSS icon on ETSI HypO's map
 
 loop#White #Gold every 5 minutes
 Peering -> "ETSI\nOpenSlice": Request service specification details
-"ETSI\nOpenSlice" -> Peering: Service specification details retrieved
+alt#White #Yellow Success
+      "ETSI\nOpenSlice" -> Peering: Service specification details retrieved
+  else Failure
+      "ETSI\nOpenSlice" -> Peering: Unavailable DO and/or service specification details
+      Peering -> Web: Remove service specifications from Marketplace
+  end
 end
 
 ```
