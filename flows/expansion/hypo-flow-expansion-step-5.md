@@ -18,12 +18,16 @@ actor "Domain\nOwner" as DomainOwner #000000
 ' Step 5
 ' ============================================
 
-note over Web, "Cluster\nController": This flow follows up platform expansion step 4 "Order a new OpenSlice OSS for this domain"
+note over "ETSI\nOpenSlice", "Cluster\nController": This flow follows up platform expansion step 4 "Order a new OpenSlice OSS for this domain"
 
 == Step 5: OpenSlice OSS resource discovery, service design, and exposure ==
 
+"Cluster\nController" -> "ETSI\nOpenSlice": Compute infrastructure controller discovered
 
+"5G\nController" -> "ETSI\nOpenSlice": Network infrastructure controller discovered
 
-note over Web, "Cluster\nController": Go to workflow "HypO-OpenSlice peering"
+"ETSI\nOpenSlice" -> "ETSI\nOpenSlice": Infrastructure controllers presented\nas TMF resource specifications
+
+note over "ETSI\nOpenSlice", "Cluster\nController": Go to workflow "HypO-OpenSlice peering"
 
 ```
