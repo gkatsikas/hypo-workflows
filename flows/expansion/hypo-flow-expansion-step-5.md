@@ -24,7 +24,7 @@ note over "ETSI\nOpenSlice", "Cluster\nController": This flow follows up platfor
 
 "Cluster\nController" -> "ETSI\nOpenSlice": Compute infrastructure controller discovered
 
-"5G\nController" -> "ETSI\nOpenSlice": Network infrastructure controller discovered
+"5G\nSystem" -> "ETSI\nOpenSlice": Network infrastructure controller discovered
 
 "ETSI\nOpenSlice" -> "ETSI\nOpenSlice": Infrastructure controllers presented\nas TMF resource specifications
 
